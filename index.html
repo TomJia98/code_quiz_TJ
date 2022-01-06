@@ -14,10 +14,8 @@
             <h1>Coding Quiz</h1>
 
                 <div id="Highscores-beginning">
-                    <h2>Highscores</h2>
-                    <ol>
-                        
-                    </ol>
+                    <h2 id="highscores-firstpage">Highscores</h2>
+                   
                 </div>
 
             <button id="begin-quiz-button">Start Quiz</button>
@@ -25,27 +23,19 @@
     </div>
 
     <div id="questions-page" style="display:none;"> <!-- display this page upon beginning the quiz-->
+        <div id="buttons">
             <p id="question"></p>
-            <button id="answer 1"></button>
-            <button id="answer 2"></button>
-            <button id="answer 3"></button>
-            <button id="answer 4"></button>
+             <button id="answer 1"></button>
+             <button id="answer 2"></button>
+             <button id="answer 3"></button>
+             <button id="answer 4"></button>
+        <hr>
+        <p id="is-guess"></p>
+        </div>
             <span>Seconds Remaining: <span id="timer"></span></span>
 
 
     </div>
-
-    <div id="correct-answer" style="display:none;"> <!-- display this page if the answer was correct, then go back to needed page-->
-            <img src ="assets/images/greentick.png" alt="large green tick">
-
-    </div>
-
-
-    <div id="incorrect-answer" style="display:none;"> <!--display this page if the answer was incorrect, then go back to needed page-->
-            <img src="assets/images/redcross.png" alt="large red cross">
-
-    </div>
-
 
     <div id="highscore-page" style="display:none;"> <!-- display this page at the end of the quiz-->
 

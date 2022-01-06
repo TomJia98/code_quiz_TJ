@@ -5,6 +5,8 @@ const correctAnswer = document.querySelector("#correct-answer");
 const incorrectAnswer = document.querySelector("#incorrect-answer");
 const highscoresPage = document.querySelector("#highscore-page");
 const timer = document.querySelector("#timer");
+const questionEl =  document.querySelector("#question");
+const buttonsEl =  document.querySelector("#buttons");
 
 const buttonAnswer1 = document.getElementById("answer 1");
 const buttonAnswer2 = document.getElementById("answer 2");
@@ -14,7 +16,7 @@ const buttonAnswer4 = document.getElementById("answer 4");
 
 
 const question1 = {
-    question: "What character should follow each finished line of code?",
+    question: "In javascript, what character should follow each finished line of code?",
     answer1: "Question mark '?'",
     isAnswer1: false,
     answer2: "Semicolon ';'",
@@ -36,6 +38,56 @@ const question2 = {
     answer4: "Zero",
     isAnswer4: true
     }
+
+const question3 = {
+    question: "What number does javascript start counting array elements with?",
+    answer1: "Five",
+    isAnswer1: false,
+    answer2: "One",
+    isAnswer2: false,
+    answer3: "Uno",
+    isAnswer3: false,
+    answer4: "Zero",
+    isAnswer4: true
+    }
+    
+const question4 = {
+    question: "What number does javascript start counting array elements with?",
+    answer1: "Five",
+    isAnswer1: false,
+    answer2: "One",
+    isAnswer2: false,
+    answer3: "Uno",
+    isAnswer3: false,
+    answer4: "Zero",
+    isAnswer4: true
+    }
+
+
+const question5 = {
+    question: "What number does javascript start counting array elements with?",
+    answer1: "Five",
+    isAnswer1: false,
+    answer2: "One",
+    isAnswer2: false,
+    answer3: "Uno",
+    isAnswer3: false,
+    answer4: "Zero",
+    isAnswer4: true
+    }
+    
+const question6 = {
+    question: "What number does javascript start counting array elements with?",
+    answer1: "Five",
+    isAnswer1: false,
+    answer2: "One",
+    isAnswer2: false,
+    answer3: "Uno",
+    isAnswer3: false,
+    answer4: "Zero",
+    isAnswer4: true
+    }
+
 
 
 function countdownTimer() {
@@ -75,7 +127,7 @@ firstPage.setAttribute("style", "display:none;");
 activeQuiz.setAttribute("style", "display:inline;");
 countdownTimer();
 // sets the question section of the quiz as active 
-
+questionEl.textContent = question1.question;
 
 buttonAnswer1.textContent = question1.answer1;
 buttonAnswer1.setAttribute("data-isAnswer", question1.isAnswer1);
@@ -92,7 +144,9 @@ buttonAnswer1.setAttribute("data-isAnswer", question1.isAnswer4);
 
 })
 
-
+//add event listener to buttons 
+//if the button is isAnswer == true, display correct, and load next question
+//if the button is isAnswer == false, display wrong, load next question, and take 10 seconds from timer
 
 
 
