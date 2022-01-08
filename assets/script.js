@@ -4,19 +4,25 @@ const activeQuiz = document.querySelector("#questions-page");
 const correctAnswer = document.querySelector("#correct-answer");
 const incorrectAnswer = document.querySelector("#incorrect-answer");
 const highscoresPage = document.querySelector("#highscore-page");
+const highscoreDisplay = document.querySelector("#highscore-list");
 const timer = document.querySelector("#timer");
 const questionEl =  document.querySelector("#question");
 const buttonsEl =  document.querySelector("#buttons");
 const guessEl = document.querySelector("#is-guess");
+const enterInitals = document.querySelector("#enter-initials");
+const submitButton = document.querySelector("#submit");
+const initials = document.querySelector("#initials");
+
 
 const buttonAnswer1 = document.getElementById("answer 1");
 const buttonAnswer2 = document.getElementById("answer 2");
 const buttonAnswer3 = document.getElementById("answer 3");
 const buttonAnswer4 = document.getElementById("answer 4");
 
+//getting all the associated divs from the HTML
 
 var timeLeft = 60;
-//getting all the associated divs from the HTML
+var highscoreTime = 0;
 
 
 const question1 = {
@@ -80,19 +86,20 @@ const question5 = {
     isAnswer4: false
     }
   
+    var gameNotTimedOut = false;
 
 function countdownTimer() {
-    // var timeLeft = 60;
   var timeInterval = setInterval(function () {
+    
     timer.textContent = timeLeft;
     timeLeft--;
 
-    if (timeLeft < 1) {
+    if (timeLeft < 1 && !gameNotTimedOut) {
       clearInterval(timeInterval);
 
       timer.textContent = "Game Over";
       
-      displayMessage();// change this callback to "end quiz"
+      loadHighscore();
     }
   
       
@@ -169,9 +176,19 @@ buttonAnswer3.setAttribute("data-isAnswer", question5.isAnswer3);
 buttonAnswer4.textContent = question5.answer4;
 buttonAnswer4.setAttribute("data-isAnswer", question5.isAnswer4);
 };
+function loadHighscore(){
+  activeQuiz.setAttribute("style", "display:none;");
+  enterInitals.setAttribute("style", "display:inline;");
+  highscoreTime = timeLeft;
+gameNotTimedOut = true;
+
+
+
+}
+
 
 const loadQuestions = [
-  loadQ2(), loadQ3, loadQ4, loadQ5,
+  loadQ2, loadQ3, loadQ4, loadQ5, loadHighscore
 ];
 var currentQuestion = 0;
 
@@ -222,20 +239,38 @@ buttonsEl.addEventListener('click', function isAnswer(event){
 
 guess("yes");
 
-loadQuestions[currentQuestion];
+loadQuestions[currentQuestion]();
 currentQuestion++;
   }
 else {
   guess("no");
 
-  loadQuestions[currentQuestion];
-  currentQuestion++;}
+  loadQuestions[currentQuestion]();
+  currentQuestion++;
+}
+
+var highscoresList = []
+})
+
+submitButton.addEventListener("click", function addHighscore(event){
+event.preventDefault();
+var currentHighscore = initials.value;
+// console.log(currentHighscore);
+enterInitals.setAttribute("style", "display:none;");
+highscoresPage.setAttribute("style", "display:inline;")
+
+var newLi = document.createElement('li');
+newLi.textContent = currentHighscore + " - " + highscoreTime + "s";
+highscoreDisplay.appendChild(newLi);
+
+
+
+
+
 
 })
 
-//add event listener to buttons 
-//if the button is isAnswer == true, display correct, and load next question
-//if the button is isAnswer == false, display wrong, load next question, and take 10 seconds from timer
+
 
 
 
