@@ -4,6 +4,8 @@ const activeQuiz = document.querySelector("#questions-page");
 const correctAnswer = document.querySelector("#correct-answer");
 const incorrectAnswer = document.querySelector("#incorrect-answer");
 const highscoresPage = document.querySelector("#highscore-page");
+const highscoresFirstPage = document.querySelector("#highscores-firstpage");
+
 const highscoreDisplay = document.querySelector("#highscore-list");
 const timer = document.querySelector("#timer");
 const questionEl =  document.querySelector("#question");
@@ -18,6 +20,12 @@ const buttonAnswer1 = document.getElementById("answer 1");
 const buttonAnswer2 = document.getElementById("answer 2");
 const buttonAnswer3 = document.getElementById("answer 3");
 const buttonAnswer4 = document.getElementById("answer 4");
+
+// var scoresArray = [];
+
+// if (localStorage.getItem("scores")==undefined){
+// localStorage.setItem("scores", scoresArray);
+// }
 
 //getting all the associated divs from the HTML
 
@@ -212,6 +220,18 @@ function guess(isCorrect) {
 }
 
 
+function showHighscores(){
+  enterInitals.setAttribute("style", "display:none;");
+  firstPage.setAttribute("style", "display:none;");
+  highscoresPage.setAttribute("style", "display:inline;")
+  highscoreDisplay.textContent = JSON.parse(localStorage.getItem("scores"));
+  // highscoreDisplay.textContent = localStorage.getItem("scores");
+
+
+}
+highscoresFirstPage.addEventListener("click", showHighscores)
+
+
 beginQuizButton.addEventListener("click", function startQuiz(){
 firstPage.setAttribute("style", "display:none;");
 activeQuiz.setAttribute("style", "display:inline;");
@@ -242,33 +262,41 @@ guess("yes");
 loadQuestions[currentQuestion]();
 currentQuestion++;
   }
-else {
+else  if (event.target.dataset.isanswer == "false"){
   guess("no");
 
   loadQuestions[currentQuestion]();
   currentQuestion++;
 }
 
-var highscoresList = []
 })
 
 submitButton.addEventListener("click", function addHighscore(event){
 event.preventDefault();
 var currentHighscore = initials.value;
-// console.log(currentHighscore);
-enterInitals.setAttribute("style", "display:none;");
-highscoresPage.setAttribute("style", "display:inline;")
+// enterInitals.setAttribute("style", "display:none;");
+// highscoresPage.setAttribute("style", "display:inline;")
 
-var newLi = document.createElement('li');
-newLi.textContent = currentHighscore + " - " + highscoreTime + "s";
-highscoreDisplay.appendChild(newLi);
+// var newLi = document.createElement('li');
 
 
-
-
-
-
+var newLi = currentHighscore + " - " + highscoreTime + "s";
+console.log(newLi);
+var x = []//localStorage.getItem("scores");
+if(localStorage.getItem("scores")!=undefined||localStorage.getItem("scores")!=null){
+x.push(JSON.parse(localStorage.getItem("scores")));
+}
+else{
+x.push(newLi);
+console.log(x);
+x = JSON.stringify(x);
+console.log(x);
+localStorage.setItem("scores", x);
+}
+showHighscores();
 })
+
+
 
 
 
