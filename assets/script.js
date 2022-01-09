@@ -1,8 +1,6 @@
 const beginQuizButton = document.querySelector("#begin-quiz-button");
 const firstPage = document.querySelector("#first-page");
 const activeQuiz = document.querySelector("#questions-page");
-const correctAnswer = document.querySelector("#correct-answer");
-const incorrectAnswer = document.querySelector("#incorrect-answer");
 const highscoresPage = document.querySelector("#highscore-page");
 const highscoresFirstPage = document.querySelector("#highscores-firstpage");
 
@@ -15,6 +13,7 @@ const enterInitals = document.querySelector("#enter-initials");
 const submitButton = document.querySelector("#submit");
 const initials = document.querySelector("#initials");
 
+const resetScores = document.querySelector("#reset");
 
 const buttonAnswer1 = document.getElementById("answer 1");
 const buttonAnswer2 = document.getElementById("answer 2");
@@ -224,7 +223,15 @@ function showHighscores(){
   enterInitals.setAttribute("style", "display:none;");
   firstPage.setAttribute("style", "display:none;");
   highscoresPage.setAttribute("style", "display:inline;")
-  highscoreDisplay.textContent = JSON.parse(localStorage.getItem("scores"));
+
+  var hScores = JSON.parse(localStorage.getItem("scores"));
+  console.log(hScores.length);
+  for (var i = 0; i < hScores.length; i++){
+var liEl = document.createElement("li");
+liEl.textContent = hScores[i];
+highscoreDisplay.appendChild(liEl);
+  }
+  // highscoreDisplay.textContent = JSON.parse(localStorage.getItem("scores"));
   // highscoreDisplay.textContent = localStorage.getItem("scores");
 
 
@@ -281,20 +288,35 @@ var currentHighscore = initials.value;
 
 
 var newLi = currentHighscore + " - " + highscoreTime + "s";
-console.log(newLi);
-var x = []//localStorage.getItem("scores");
-if(localStorage.getItem("scores")!=undefined||localStorage.getItem("scores")!=null){
-x.push(JSON.parse(localStorage.getItem("scores")));
+var x = []
+if (localStorage.getItem("scores") != undefined ){
+  console.log("its defined");
+var a1 = localStorage.getItem("scores");
+var a2 = JSON.parse(a1);
+console.log(a2);
+for (var i = 0; i < a2.length; i++){
+  x.push(a2[i]);
 }
-else{
+}
+
+
+
 x.push(newLi);
-console.log(x);
-x = JSON.stringify(x);
-console.log(x);
-localStorage.setItem("scores", x);
-}
+
+var z =JSON.stringify(x) 
+
+localStorage.setItem("scores", z);
+
 showHighscores();
 })
+
+resetScores.addEventListener("click", function reset(){
+  highscoreDisplay.setAttribute("style", "display:none;")
+localStorage.clear();
+showHighscores();
+
+})
+
 
 
 
