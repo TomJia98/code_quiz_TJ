@@ -1,0 +1,59 @@
+#highscores-firstpage {
+  /* background-color: rgb(151, 14, 151); */
+  display: inline;
+  position: absolute;
+  top: 0px;
+  border-radius: 2px;
+  padding: 3px;
+  left: 0px;
+}
+#time-left {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  padding: 20px;
+}
+
+#highscores-firstpage:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+#first-page {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+}
+#enter-initials {
+  display: flex;
+  text-align: center;
+  margin: 20px;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  top: 20%;
+}
+.answer {
+  background-color: rgb(156, 18, 156);
+  border-radius: 3px;
+  border: white 0px;
+  font-size: 1.5em;
+  display: inline;
+  width: 20%;
+  position: relative;
+  left: 40%;
+  margin: 5px;
+}
+
+.answer:hover {
+  background-color: rgb(211, 27, 211);
+}

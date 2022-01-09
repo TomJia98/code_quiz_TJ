@@ -167,7 +167,8 @@ buttonAnswer3.setAttribute("data-isAnswer", question5.isAnswer3);
 buttonAnswer4.textContent = question5.answer4;
 buttonAnswer4.setAttribute("data-isAnswer", question5.isAnswer4);
 };
-//creating all the load functions to change which question and answer pairs are being displayed
+//creating all the load functions to change which question and answer pairs are being displayed 
+//(could probably be broken down into arrays and done with a for loop)
 function loadHighscore(){
   activeQuiz.setAttribute("style", "display:none;");
   enterInitals.setAttribute("style", "display:inline;");

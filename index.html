@@ -14,7 +14,7 @@
             <h1>Coding Quiz</h1>
 
                 <div id="Highscores-beginning">
-                    <h2 id="highscores-firstpage">Highscores</h2>
+                    <h2 id="highscores-firstpage">View Highscores</h2>
                    
                 </div>
 
@@ -25,14 +25,14 @@
     <div id="questions-page" style="display:none;"> <!-- display this page upon beginning the quiz-->
         <div id="buttons">
             <p id="question"></p>
-             <button id="answer 1"></button>
-             <button id="answer 2"></button>
-             <button id="answer 3"></button>
-             <button id="answer 4"></button>
-        <hr>
+             <button id="answer 1" class="answer"></button>
+             <button id="answer 2" class="answer"></button>
+             <button id="answer 3" class="answer"></button>
+             <button id="answer 4" class="answer"></button>
+             <hr>
         <p id="is-guess"></p>
         </div>
-            <span>Seconds Remaining: <span id="timer"></span></span>
+            <span id="time-left">Time Left: <span id="timer"></span></span>
 
 
     </div>
@@ -43,6 +43,7 @@
             <label for="initials">Enter Initials</label>
             <input type="text" id="initials">
             <input type="submit" value="submit" id="submit">
+            <!-- display after completing quiz, then go to highscore page -->
             
             
         </form>
@@ -54,9 +55,9 @@
         <ol id="highscore-list">
 
         </ol>
-        <button id="reset">Reset highscores</button>
+        <button id="reset">Clear highscores</button>
         <form>
-        <input type="submit" value="Start Again">
+        <input type="submit" value="Go Back">
     </form>
     </div>
     
