@@ -1,5 +1,26 @@
+body {
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
+h1 {
+  font-size: 2em;
+  padding: 20px;
+}
+h2 {
+  font-size: 1.5em;
+  padding: 20px;
+}
+h3 {
+  font-size: 2em;
+  padding: 20px;
+}
+
+ol {
+  margin: 20px;
+}
+
 #highscores-firstpage {
-  /* background-color: rgb(151, 14, 151); */
   display: inline;
   position: absolute;
   top: 0px;
@@ -7,20 +28,27 @@
   padding: 3px;
   left: 0px;
 }
+
 #time-left {
   position: absolute;
   top: 20px;
   right: 20px;
 }
 
-h1 {
-  font-size: 2em;
-  padding: 20px;
-}
-
 #highscores-firstpage:hover {
   color: blue;
   cursor: pointer;
+}
+
+#highscore-page {
+  position: relative;
+  top: 50%;
+  margin: 20px;
+  text-align: center;
+}
+
+#highscore-page h2 {
+  font-size: 2em;
 }
 
 #first-page {
@@ -29,11 +57,6 @@ h1 {
   text-align: center;
   padding: 50px;
 }
-#enter-initials {
-  display: flex;
-  text-align: center;
-  margin: 20px;
-}
 
 #buttons {
   display: flex;
@@ -41,7 +64,36 @@ h1 {
   text-align: center;
   position: relative;
   top: 20%;
+  margin: 20px;
+  font-size: 1.5em;
 }
+
+#enter-initials {
+  display: flex;
+  text-align: center;
+  margin: 20px;
+}
+
+#begin-quiz-button {
+  left: 46%;
+}
+
+.other-button {
+  background-color: lawngreen;
+  padding: 5px;
+  border-radius: 3px;
+  display: block;
+  position: relative;
+  margin: 5px;
+  border: solid white 0px;
+  width: 8%;
+  left: 46%;
+}
+
+.other-button:hover {
+  background-color: rgb(109, 202, 16);
+}
+
 .answer {
   background-color: rgb(156, 18, 156);
   border-radius: 3px;

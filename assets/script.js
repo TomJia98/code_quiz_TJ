@@ -63,7 +63,7 @@ const question3 = {
     }
     
 const question4 = {
-    question: "What cannot be stored in a pages local storage",
+    question: "What cannot be stored in a pages local storage?",
     answer1: "Livestock",
     isAnswer1: false,
     answer2: "Arrays",
@@ -76,7 +76,7 @@ const question4 = {
 
 
 const question5 = {
-    question: "_______ is NOT an example of an equality operator",
+    question: "Which of the following is NOT an example of an equality operator?",
     answer1: "===",
     isAnswer1: false,
     answer2: "!=",
@@ -189,7 +189,7 @@ function guess(isCorrect) {
   }, 500);
   }
   else if (isCorrect == "no"){
-    guessEl.textContent = "incorrect";
+    guessEl.textContent = "Incorrect";
     timeLeft = timeLeft - 10;    
     setTimeout(function(){
       guessEl.textContent = "";

@@ -12,25 +12,29 @@
 <body>
     <div id="first-page"> <!-- display this page first -->
             <h1>Coding Quiz</h1>
+            <p>Click the button below to begin this javascript quiz, your score will be recorded at the end.
+                <br> Highest number wins, every wrong answer removes 10.
+            </p>
 
                 <div id="Highscores-beginning">
                     <h2 id="highscores-firstpage">View Highscores</h2>
                    
                 </div>
 
-            <button id="begin-quiz-button">Start Quiz</button>
+            <button id="begin-quiz-button" class="other-button">Start Quiz</button>
 
     </div>
 
     <div id="questions-page" style="display:none;"> <!-- display this page upon beginning the quiz-->
         <div id="buttons">
             <p id="question"></p>
+            <hr>
              <button id="answer 1" class="answer"></button>
              <button id="answer 2" class="answer"></button>
              <button id="answer 3" class="answer"></button>
              <button id="answer 4" class="answer"></button>
              <hr>
-        <p id="is-guess"></p>
+        <p id="is-guess" style="font-style: italic;"></p>
         </div>
             <span id="time-left">Time Left: <span id="timer"></span></span>
 
@@ -39,10 +43,11 @@
 
     
     <div id="enter-initials" style='display:none;'>
+        <h3>Quiz Complete!</h3>
         <form>
             <label for="initials">Enter Initials</label>
             <input type="text" id="initials">
-            <input type="submit" value="submit" id="submit">
+            <input type="submit" value="submit" id="submit" class="other-button">
             <!-- display after completing quiz, then go to highscore page -->
             
             
@@ -53,11 +58,10 @@
     <div id="highscore-page" style="display:none;"> <!-- display this page at the end of the quiz-->
         <h2>Highscores</h2>
         <ol id="highscore-list">
-
         </ol>
-        <button id="reset">Clear highscores</button>
+        <button id="reset" class="other-button">Clear Highscores</button>
         <form>
-        <input type="submit" value="Go Back">
+        <input type="submit" value="Go Back" class="other-button">
     </form>
     </div>
     
